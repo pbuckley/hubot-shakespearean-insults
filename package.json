@@ -1,7 +1,7 @@
 {
   "name": "hubot-shakespearean-insults",
   "description": "Hubot script. Insults you with a Shakespearean insult.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "buckmeisterq@gmail.com",
   "license": "MIT",
 

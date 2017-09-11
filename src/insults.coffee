@@ -21,6 +21,8 @@ insultUrl = 'http://www.pangloss.com/seidel/Shaker/'
 
 module.exports = (robot) ->
 
+  robotInsultRegex = new RegExp("(#{robot.name}|.*)? ?(insult|insulting) ?(#{robot.name}|.*)?", "i")
+
   insultFunction = (res) ->
     robot.http(insultUrl)
         .get() (err, resp, body) ->
@@ -29,15 +31,15 @@ module.exports = (robot) ->
           insultRegex = /(.*)<\/font>/
           insultLine = body.match(insultRegex)
           fullInsult = insultLine[0].replace(/<\/font>/, '')
-          robot.logger.debug "The envelope user.name: #{res.envelope.user.name}"
+          robot.logger.debug "The envelope user.mention_name: #{res.envelope.user.mention_name}"
           res.send "@#{res.envelope.user.mention_name} #{fullInsult}"
 
-  robot.hear /(chewbot|.*)? ?(insult|insulting) ?(chewbot|.*)?/i, (res) ->
+  robot.hear robotInsultRegex, (res) ->
     preName = res.match[1]
     postName = res.match[3]
-    chewbotNameRegex = /chewbot/i
-    if preName? and preName.match chewbotNameRegex
+    robotNameRegex = new RegExp(robot.name, "i")
+    if preName? and preName.match robotNameRegex
       insultFunction(res)
-    if postName? and postName.match chewbotNameRegex
+    if postName? and postName.match robotNameRegex
       insultFunction(res)
 
