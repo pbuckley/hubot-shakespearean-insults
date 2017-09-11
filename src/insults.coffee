@@ -30,7 +30,7 @@ module.exports = (robot) ->
           insultLine = body.match(insultRegex)
           fullInsult = insultLine[0].replace(/<\/font>/, '')
           robot.logger.debug "The envelope user.name: #{res.envelope.user.name}"
-          res.send "@#{res.envelope.user.name} #{fullInsult}"
+          res.send "@#{res.envelope.user.mention_name} #{fullInsult}"
 
   robot.hear /(chewbot|.*)? ?(insult|insulting) ?(chewbot|.*)?/i, (res) ->
     preName = res.match[1]
