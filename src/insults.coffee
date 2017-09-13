@@ -6,12 +6,7 @@
 #
 #
 # Commands:
-#   hubot insult me
-#   hubot you insult me
-#   hubot I find that insulting
-#   I find that insulting hubot
-#   don't you insult me, hubot
-#   insult me, why don't ya, hubot?
+#   hubot (do|don't|are you) (insult|insulting) me
 #
 # 
 # Author:
