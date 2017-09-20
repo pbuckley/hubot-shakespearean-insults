@@ -1,4 +1,4 @@
-# hubot-falsehoods
+# hubot-shakespearean-insults
 
 Hubot script. Insults you in a Shakespearean fashion, fetching the
 random insults from http://www.pangloss.com/seidel/Shaker/
